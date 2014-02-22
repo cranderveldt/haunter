@@ -14,21 +14,32 @@
     <section id="loader">
       <h3>PLEASE WAIT LOADING</h3>
     </section>
+    <section id="title">
+      <h1>Haunter</h1>
+      <div class="explanation">
+        <p>Haunter is a point-and-click room escape game. You can click on objects in your environment and solve puzzles to try to escape. This game has three endings. Try to get them all!</p> 
+      </div>
+      <nav id="start-game">Play Game</nav>
+    </section>
     <div id="views">
       <div class="view" ng-repeat="view in views" id="view-{{view.id}}">
         <div class="statuses">
-          <img src="images/view-{{view.id}}-{{stat}}.jpg" class="status status-{{stat}}" style="display: none;" ng-repeat="stat in view.status">
+          <img ng-repeat="stat in view.status" ng-src="/images/view-{{view.id}}-{{stat}}.jpg" class="status status-{{stat}}" style="display: none;">
+        </div>
+        <div class="audio">
+          <audio ng-repeat="sound in view.audio" controls ng-src="{{sound.src}}" class="sound sound-{{sound.id}}"></audio>
         </div>
         <nav ng-hide="{{view.nav.left}} === 0" class="left" ld-change-screen="{{view.nav.left}}"><i class="fa fa-chevron-left"></i></nav>
         <nav ng-hide="{{view.nav.right}} === 0" class="right" ld-change-screen="{{view.nav.right}}"><i class="fa fa-chevron-right"></i></nav>
         <nav ng-hide="{{view.nav.up}} === 0" class="up" ld-change-screen="{{view.nav.up}}"><i class="fa fa-chevron-up"></i></nav>
         <nav ng-hide="{{view.nav.down}} === 0" class="down" ld-change-screen="{{view.nav.down}}"><i class="fa fa-chevron-down"></i></nav>
         <div class="elements">
-          <div class="element" ld-element="{{elm.type}}" data-message="{{elm.message}}" data-status="{{elm.status}}" ng-repeat="elm in view.elms" style="top: {{elm.top}}; left: {{elm.left}}; width: {{elm.width}}; height: {{elm.height}}; "></div>
+          <div class="element" ld-element="{{elm.type}}" data-message="{{elm.message}}" data-status="{{elm.status}}" data-audio="{{elm.audio}}" ng-repeat="elm in view.elms" style="top: {{elm.top}}; left: {{elm.left}}; width: {{elm.width}}; height: {{elm.height}}; "></div>
         </div>
       </div>
     </div>
     <div id="message"></div>
+    <!-- <audio controls autoplay loop src="/audio/main-theme.ogg" id="bg-music"></audio> -->
   </section>
 </body>
 </html>

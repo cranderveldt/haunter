@@ -1,5 +1,6 @@
+var LD = {};
 jQuery(document).ready(function($) {
-  $('#game').imagesLoaded(function() {
+  LD.initialize = function(){
     var cookie = $.cookie('current_view');
     if (cookie !== undefined) {
       $('#view-' + cookie).show().siblings().hide();
@@ -8,7 +9,14 @@ jQuery(document).ready(function($) {
     }
     $('.status-dark').show();
     $('#loader').hide();
+  };
+  LD.startGame = function() {
+    $('#title').hide();
+  };
+  $('#game').imagesLoaded(function() {
+    LD.initialize();
   });
+  $('#start-game').on('click', LD.startGame);
 });
 
 var Main = function ($scope) {
@@ -18,6 +26,12 @@ var Main = function ($scope) {
       , status: [
         'dark'
         , 'light'
+      ]
+      , audio: [
+        {
+          id: '1'
+          , src: "/audio/sound-1.ogg"
+        }
       ]
       , nav: {
         up: 6
@@ -34,6 +48,7 @@ var Main = function ($scope) {
           , type: 'message'
           , message: 'It\'s a serene painting of mist coming off the mountains in Japan.'
           , status: 'light'
+          , audio: '1'
         }
       ]
     }
@@ -41,6 +56,9 @@ var Main = function ($scope) {
       id: 2
       , status: [
         'dark'
+      ]
+      , audio: [
+
       ]
       , nav: {
         up: 0
@@ -57,6 +75,9 @@ var Main = function ($scope) {
       , status: [
         'dark'
       ]
+      , audio: [
+
+      ]
       , nav: {
         up: 0
         , right: 2
@@ -71,6 +92,9 @@ var Main = function ($scope) {
       id: 4
       , status: [
         'dark'
+      ]
+      , audio: [
+
       ]
       , nav: {
         up: 0
@@ -87,6 +111,9 @@ var Main = function ($scope) {
       , status: [
         'dark'
       ]
+      , audio: [
+
+      ]
       , nav: {
         up: 0
         , right: 0
@@ -101,6 +128,9 @@ var Main = function ($scope) {
       id: 6
       , status: [
         'dark'
+      ]
+      , audio: [
+
       ]
       , nav: {
         up: 0
@@ -150,6 +180,9 @@ app.directive('ldElement', function () {
         if (data.status !== '') {
           element.parent().parent().find('.status-' + data.status).show().siblings().hide();
         }
+        if (data.audio !== '') {
+          var sound = element.parent().parent().find('.sound-' + data.audio)[0].play();
+        }
       });
     }
   };
@@ -164,16 +197,25 @@ open bathroom {
   turn on lights
   turn on blender
   turn on music {
-  
+    // human comes out
+    turn off lights/music {
+      reveal yourself to people
+    }
+    go in room {
+      find and destroy spirit tether
+    }
+    start microwave {
+      // human comes to kitchen
+      turn on outside light
+      knock on outside door {
+        escape out the back door
+      }
+    }
   }
-
 }
 
-escape out the front door
 
-reveal yourself to people
 
-find and destroy spirit tether
 
 
 

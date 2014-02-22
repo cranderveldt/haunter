@@ -64,6 +64,41 @@ img {
     font-weight: bold;
   }
 }
+#title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  color: #FFF;
+  z-index: 999;
+  padding: 20px;
+  h1 {
+    @include font-size(62, 1);
+    font-weight: bold;
+    margin: 0 0 20px;
+  }
+  .explanation {
+    margin-bottom: 40px;
+    p {
+      @include font-size(18);
+    }
+  }
+  nav {
+    @include font-size(36);
+    cursor: pointer;
+    padding: 10px 15px;
+    @include round(8px);
+    background: #FFF;
+    color: #222;
+    @include inline-block(middle);
+    font-weight: bold;
+    &:hover {
+      background: #AAA;
+    }
+  }
+}
 #game {
   width: 800px;
   height: 600px;
@@ -138,6 +173,14 @@ img {
     cursor: pointer;
     opacity: .3;
   }
+  audio {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+#bg-music {
+  visibility: hidden;
+  opacity: 0;
 }
 .img {
   width: 800px;
