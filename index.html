@@ -2,7 +2,7 @@
 <html lang="en" ng-app="mini-ld">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Haunter</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/jquery.js"></script>
   <script src="js/lib.js"></script>
@@ -14,13 +14,21 @@
     <section id="loader">
       <h3>PLEASE WAIT LOADING</h3>
     </section>
-    <div class="view" ng-repeat="view in views" id="view-{{view.id}}">
-      <img src="images/view-{{view.id}}.jpg">
-      <nav ng-hide="{{view.nav.left}} === 0" class="left" ld-change-screen="{{view.nav.left}}"><i class="fa fa-chevron-left"></i></nav>
-      <nav ng-hide="{{view.nav.right}} === 0" class="right" ld-change-screen="{{view.nav.right}}"><i class="fa fa-chevron-right"></i></nav>
-      <nav ng-hide="{{view.nav.up}} === 0" class="up" ld-change-screen="{{view.nav.up}}"><i class="fa fa-chevron-up"></i></nav>
-      <nav ng-hide="{{view.nav.down}} === 0" class="down" ld-change-screen="{{view.nav.down}}"><i class="fa fa-chevron-down"></i></nav>
+    <div id="views">
+      <div class="view" ng-repeat="view in views" id="view-{{view.id}}">
+        <div class="statuses">
+          <img src="images/view-{{view.id}}-{{stat}}.jpg" class="status status-{{stat}}" style="display: none;" ng-repeat="stat in view.status">
+        </div>
+        <nav ng-hide="{{view.nav.left}} === 0" class="left" ld-change-screen="{{view.nav.left}}"><i class="fa fa-chevron-left"></i></nav>
+        <nav ng-hide="{{view.nav.right}} === 0" class="right" ld-change-screen="{{view.nav.right}}"><i class="fa fa-chevron-right"></i></nav>
+        <nav ng-hide="{{view.nav.up}} === 0" class="up" ld-change-screen="{{view.nav.up}}"><i class="fa fa-chevron-up"></i></nav>
+        <nav ng-hide="{{view.nav.down}} === 0" class="down" ld-change-screen="{{view.nav.down}}"><i class="fa fa-chevron-down"></i></nav>
+        <div class="elements">
+          <div class="element" ld-element="{{elm.type}}" data-message="{{elm.message}}" data-status="{{elm.status}}" ng-repeat="elm in view.elms" style="top: {{elm.top}}; left: {{elm.left}}; width: {{elm.width}}; height: {{elm.height}}; "></div>
+        </div>
+      </div>
     </div>
+    <div id="message"></div>
   </section>
 </body>
 </html>

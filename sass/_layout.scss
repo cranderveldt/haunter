@@ -66,10 +66,19 @@ img {
 }
 #game {
   width: 800px;
-  height: 531px;
+  height: 600px;
   margin: 20px auto;
   background: #FFF;
   position: relative;
+}
+#message {
+  height: 69px;
+  @include font-size(18);
+  padding: 10px;
+}
+#views {
+  width: 800px;
+  height: 531px;
 }
 .view {
   position: absolute;
@@ -122,6 +131,12 @@ img {
     top: 0;
     left: 0;
     width: 100%;
+  }
+  .element {
+    position: absolute;
+    background: red;
+    cursor: pointer;
+    opacity: .3;
   }
 }
 .img {
