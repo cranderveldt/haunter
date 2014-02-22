@@ -1,0 +1,133 @@
+html {
+  font-size: 62.5%;
+  min-height: 100%;
+}
+body {
+  @include font-size;
+  min-height: 100%;
+  background: #000;
+}
+body, select, input, button, label {
+  font-weight: 400;
+  font-family: $sans;
+  -webkit-font-smoothing: antialiased;
+  &:focus {
+    outline: none;
+  }
+}
+h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, .h6, .h7 {
+  font-family: $sans;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.h0 {
+  @include font-size($h0-size...);
+}
+.h1, .base h1 {
+  @include font-size($h1-size...);
+}
+.h2, .base h2 {
+  @include font-size($h2-size...);
+}
+.h3, .base h3 {
+  @include font-size($h3-size...);
+}
+.h4, .base h4 {
+  @include font-size($h4-size...);
+}
+.h5, .base h5 {
+  @include font-size($h5-size...);
+}
+.h6, .base h6 {
+  @include font-size($h6-size...);
+}
+.h7 {
+  @include font-size($h7-size...);
+}
+img {
+  max-width: 100%;
+  width: auto;
+}
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #666;
+  color: #FFF;
+  z-index: 1000;
+  padding-top: 140px;
+  h3 {
+    @include font-size(72);
+    text-align: center;
+    font-weight: bold;
+  }
+}
+#game {
+  width: 800px;
+  height: 531px;
+  margin: 20px auto;
+  background: #FFF;
+  position: relative;
+}
+.view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  &, * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  nav {
+    @include font-size(50, 1);
+    opacity: .3;
+    color: #FFF;
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    &:hover {
+      opacity: 1;
+    }
+    &.left {
+      left: 10px;
+      top: 50%;
+      margin-top: -25px;
+    }
+    &.right {
+      right: 10px;
+      top: 50%;
+      margin-top: -25px;
+    }
+    &.up {
+      top: 10px;
+      left: 50%;
+      margin-left: -25px;
+    }
+    &.down {
+      bottom: 10px;
+      left: 50%;
+      margin-left: -25px;
+    }
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+.img {
+  width: 800px;
+  height: 531px;
+  background: #FFF url() center center no-repeat;
+  background-size: cover;
+}
+
